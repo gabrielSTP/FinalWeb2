@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// routes/web.php
+
+//O CATALOGO ESTÁ COMPLETO EM FERRAMENTAS, PORÉM NENHUMA FOI APLICADA AINDA
+Route::get('/catalogo', function () {
+    return view('\catalogo\catalogo');
+});
 
 Route::get('/', function () {
     return view('welcome');
