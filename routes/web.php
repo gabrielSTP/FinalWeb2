@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,17 @@ use Illuminate\Support\Facades\Route;
 // routes/web.php
 
 //O CATALOGO ESTÁ COMPLETO EM FERRAMENTAS, PORÉM NENHUMA FOI APLICADA AINDA
+
+
+// Rota para exibir o catálogo
 Route::get('/catalogo', function () {
-    return view('\catalogo\catalogo');
+    // Busca os livros do banco de dados
+    $books = DB::table('books')->select('imageUrl', 'title', 'author', 'description')->get();
+
+    // Passa os dados dos livros para a view 'catalogo.catalogo'
+    return view('catalogo.catalogo', ['books' => $books]);
 });
+
 
 Route::get('/', function () {
     return view('welcome');
