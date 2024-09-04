@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Edição de Categoria</h1>
+        <h1>Edição de Gênero Cadastrado</h1>
 
         <form action="{{ route('category.update', $category->id) }}" method="post">
             @csrf()

@@ -10,23 +10,21 @@
                 <li class="dropdown @if (str_contains(Route::current()->getName(), 'products')) active @endif">
                     <a class="nav-link dropdown-toggle" href={{ route('products.index') }} id="navbarDropdown"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Produtos
+                        Livros
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href={{ route('products.index') }}>Listar</a>
+                        <a class="dropdown-item" href={{ route('products.index') }}>Listar Todos</a>
                         <a class="dropdown-item" href={{ route('products.create') }}>Cadastrar</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
                 @if(Auth::user()->hasRole('Administrator'))
                     <li class="dropdown @if (str_contains(Route::current()->getName(), 'category')) active @endif">
                         <a class="nav-link dropdown-toggle" href={{ route('category.index') }} id="navbarDropdown"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Categoria
+                            Gêneros
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href={{ route('category.index') }}>Listar</a>
+                            <a class="dropdown-item" href={{ route('category.index') }}>Listar Todos</a>
                             <a class="dropdown-item" href={{ route('category.create') }}>Cadastrar</a>
                         </div>
                     </li>
@@ -45,7 +43,7 @@
                                 @csrf
                                 <a class="dropdown-item" href={{ route('logout') }}
                                     onclick="event.preventDefault(); this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('LogOut') }}
                                 </a>
                             </form>
                             </a>

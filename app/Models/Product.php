@@ -10,12 +10,15 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
+        'title',
         'description',
-        'price',
-        'stock',
+        'author',
+        'imageUrl',
         'category_id',
     ];
+
+    protected $table = 'books';  // Substitua 'nova_tabela' pelo nome da nova tabela.
+
 
     public function category(): BelongsTo
     {

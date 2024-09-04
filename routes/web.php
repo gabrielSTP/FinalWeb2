@@ -22,18 +22,19 @@ use Illuminate\Support\Facades\DB;
 
 
 // Rota para exibir o catálogo
-Route::get('/catalogo', function () {
-    // Busca os livros do banco de dados
-    $books = DB::table('books')->select('imageUrl', 'title', 'author', 'description')->get();
+Route::middleware('auth')->group(function () {
+    Route::get('/catalogo', function () {
+        // Busca os livros do banco de dados
+        $books = DB::table('books')->select('imageUrl', 'title', 'author', 'description')->get();
 
-    // Passa os dados dos livros para a view 'catalogo.catalogo'
-    return view('catalogo.catalogo', ['books' => $books]);
+        // Passa os dados dos livros para a view 'catalogo.catalogo'
+        return view('catalogo.catalogo', ['books' => $books]);
+    })->name('catalogo');
 });
-
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

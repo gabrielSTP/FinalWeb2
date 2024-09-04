@@ -1,0 +1,252 @@
+/* CORE STYLES */
+:root {
+    --primary-color: rgba(10, 0, 143, 0.281);
+    --overlay-color: rgba(24, 39, 51, 0.61);
+    --menu-speed: 0.55s;
+    --border-radius: 0.5rem;
+    --text-shadow: 2px 2px 4px rgb(24, 39, 51); /* Aumentado o traçado */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+.showcase {
+    background: var(--primary-color);
+    color: #fff;
+    height: 100vh;
+    position: relative;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.showcase:before {
+    content: '';
+    background: url('https://wallpapercave.com/wp/wp12063315.jpg') no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.showcase .showcase-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    padding: 0 1.5rem;
+}
+
+.showcase h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: var(--text-shadow);
+}
+
+.showcase p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: var(--text-shadow);
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 1rem 2.5rem; /* Aumentado o padding horizontal */
+    border-radius: var(--border-radius);
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem; /* Aumentado o tamanho da fonte */
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-shadow: var(--text-shadow);
+}
+
+.btn:hover {
+    background: rgba(10, 0, 143, 0.5);
+    transform: scale(1.05);
+}
+
+/* MENU STYLES */
+.menu-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.menu-wrap .toggler {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    cursor: pointer;
+    width: 70px; /* Aumentado o tamanho */
+    height: 70px; /* Aumentado o tamanho */
+    opacity: 0;
+}
+
+.menu-wrap .hamburger {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+    width: 80px; /* Aumentado o tamanho */
+    height: 80px; /* Aumentado o tamanho */
+    padding: 1.5rem; /* Aumentado o padding */
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-wrap .hamburger > div {
+    position: relative;
+    flex: none;
+    width: 40px; /* Aumentado o tamanho */
+    height: 4px; /* Aumentado a espessura */
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+    content: '';
+    position: absolute;
+    width: 40px; /* Aumentado o tamanho */
+    height: 4px; /* Aumentado a espessura */
+    background: inherit;
+}
+
+.menu-wrap .hamburger > div::before {
+    top: -12px; /* Ajustado para o novo tamanho */
+}
+
+.menu-wrap .hamburger > div::after {
+    top: 12px; /* Ajustado para o novo tamanho */
+}
+
+.menu-wrap .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+}
+
+.menu-wrap .toggler:checked + .hamburger > div::before,
+.menu-wrap .toggler:checked + .hamburger > div::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+    transform: rotate(225deg);
+}
+
+.menu-wrap .toggler:checked ~ .menu {
+    visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+    transform: scale(1);
+    transition-duration: var(--menu-speed);
+}
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+    opacity: 1;
+    transition: opacity 0.4s ease 0.4s;
+}
+
+.menu-wrap .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-wrap .menu > div {
+    background: var(--overlay-color);
+    border-radius: 0; /* Removido o arredondamento */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(8px); /* Adicionado o efeito de blur */
+}
+
+.menu-wrap .menu > div > div {
+    text-align: center;
+    max-width: 80vw;
+    max-height: 80vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+    list-style: none;
+    color: #fff;
+    font-size: 1.8rem; /* Aumentado o tamanho da fonte */
+    padding: 1.5rem; /* Aumentado o padding */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+    text-shadow: var(--text-shadow);
+}
+
+.menu-wrap .menu > div > div > ul > li:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+    text-shadow: var(--text-shadow);
+}
+
+.menu-wrap .menu > div > div > ul > li > a:hover {
+    color: #ddd;
+}
+
+.showcase-inner h1 {
+    font-size: 5.5rem; /* Ajuste o tamanho do título conforme necessário */
+    margin-bottom: 1.5rem; /* Espaço abaixo do título */
+}
+
+.showcase-inner p {
+    font-size: 2rem; /* Ajuste o tamanho do texto conforme necessário */
+    line-height: 1.5; /* Melhora a legibilidade */
+    max-width: 497px; /* Limita a largura do texto para melhor leitura */
+    margin: 0 auto; /* Centraliza o texto */
+}

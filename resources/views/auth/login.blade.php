@@ -1,3 +1,5 @@
+<title>Login</title>
+<link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4/4259.png">
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />

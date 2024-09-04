@@ -1,4 +1,4 @@
-var animationSpeed = 750;
+var animationSpeed = 300;
 var library = [];
 
 $(document).ready(function () {
@@ -178,6 +178,7 @@ function deselectAnimation(obj) {
             paddingBottom: "10px",
         },
         {
+            //duration: animationSpeed,
             duration: animationSpeed,
         }
     );
@@ -193,7 +194,7 @@ function deselectAnimation(obj) {
             height: "0px",
         },
         {
-            duration: animationSpeed,
+            duration: 900,
             easing: "linear",
             step: function (now, fx) {
                 if (now < start && fx.prop === "height") {

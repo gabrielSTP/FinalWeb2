@@ -2,12 +2,14 @@
 
 @section('content')
     <div class="container">
-        <h1>Listagem de Categoria</h1>
+        <h1>Listagem de Gêneros Cadastrados</h1>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Descrição</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>

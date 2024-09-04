@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'Library Catalog')</title>
+    <title>@yield('title', 'Catalogo')</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4/4259.png">
 </head>
 <body>
     @section('content')

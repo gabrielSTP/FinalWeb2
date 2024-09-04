@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <div class="container">
-        <h1>Edição de Produto</h1>
+        <h1>Edição de Livro Cadastrado</h1>
 
         <form action="{{ route('products.update', $product->id) }}" method="post">
             @csrf()

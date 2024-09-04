@@ -1,3 +1,5 @@
+<title>Register</title>
+<link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4/4259.png">
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
