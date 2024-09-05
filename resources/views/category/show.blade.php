@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Gênero {{ $category->name }}</h1>
         <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Título</label>
+            <label for="name" class="col-sm-2 col-form-label">Nome do Gênero</label>
             <div class="col-sm-10">
                 <input disabled type="text" class="form-control" id="name" name="name" placeholder="Digite o nome do produto"
                     value={{ $category->name }}>
@@ -33,7 +33,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Título</th>
+                    <th scope="col">Nome do Gênero</th>
                     <th scope="col">Descrição</th>
                     <th scope="col">Autor</th>
                 </tr>
